@@ -31,4 +31,4 @@ alter table bebe change column altura altura_cm int(3);
 describe bebe;
 
 alter table bebe rename to bebezinho;
-describe bebezinho;
+describe bebezinho; 

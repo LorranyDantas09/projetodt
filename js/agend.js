@@ -1,5 +1,22 @@
 const API_BASE = "/api/agendamentos";
 
+// === Função de Pop-up estilizado ===
+function showPopup(mensagem, tipo = "sucesso") {
+  const popup = document.createElement("div");
+  popup.className = `popup ${tipo}`;
+  popup.textContent = mensagem;
+  document.body.appendChild(popup);
+
+  // Mostra com animação
+  setTimeout(() => popup.classList.add("visivel"), 50);
+
+  // Desaparece depois de 3 segundos
+  setTimeout(() => {
+    popup.classList.remove("visivel");
+    setTimeout(() => popup.remove(), 500);
+  }, 3000);
+}
+
 const form = document.querySelector(".form-servico");
 
 // Função para enviar agendamento
@@ -26,10 +43,12 @@ form.addEventListener("submit", async (e) => {
 
     if (!res.ok) throw new Error("Erro ao enviar agendamento");
 
-    alert("Agendamento realizado com sucesso!");
-    form.reset();
+    showPopup("✅ Seu agendamento foi realizado com sucesso!", "sucesso");
+form.reset();
+
   } catch (err) {
     console.error(err);
-    alert("Erro ao realizar agendamento. Tente novamente.");
+    showPopup("❌ Erro ao realizar agendamento. Tente novamente.", "erro");
+
   }
 });

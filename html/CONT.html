@@ -17,39 +17,48 @@
         <a href="curso.html">CURSO</a>
         <a href="#" class="ativo">CONTATOS</a>
         <a href="ass.html">ASSINATURAS</a>
+        <img
+        src="../assets/barrasmenu2.png"
+        class="menu-icon"
+        onclick="openMenu()"
+        alt="Menu"
+      />
     </header>
 
+     <div id="menuLateral" class="sidebar">
+      <span class="closebtn" onclick="closeMenu()">&times;</span>
+      <a href="/cadastro/index2.html">Cadastre-se</a>
+      <a href="/agendamento/agend.html">Agende Agora</a>
+      <a href="/admin/admin.html">Admin Page</a>
+    </div>
 
-    <div class="botao">
-        <a href="ASSI.html" target="" class="instagram" id="inst">
-            <span>ACESSE NOSSO INSTAGRAM</span>
-            <img src="../assets/insta.png" alt="Instagram" />
+
+    <div class="botao" id="botao">
+        <a href="#" class="instagram" id="inst">
+            <img src="../assets/Instagram-Emblem-removebg-preview.png" alt="Instagram" />
+            <span style="display:none; font-weight:bold;">Acesse nosso Instagram</span>
         </a>
-
-        <a href="#" class="whats">
-            <span>ACESSE NOSSO WHATSAPP</span>
-            <img src="../assets/whats.png" alt="">
+        <a href="#" class="whats" id="whats"style= "">
+            <img src="../assets/whatsap.png" alt="">
+            <span style="display:none; font-weight:bold;" class="wats">Fale via WhatsApp</span>
         </a>
-
-        <a href="#" class="agen">
-            <span>AGENDAMENTO ON-LINE</span>
-            <img src="../assets/agen.png" alt="">
+       
+        <a href="#" class="agen" id="agen">
+            <img src="../assets/agendamentos.png" alt="">
+            <span style="display:none; font-weight:bold;">Agendar Agora</span>
         </a>
-        <a href="#" class="local">
-            <span>COMO CHEGAR</span>
-            <img src="../assets/maps.png" alt="">
+       
+        <a href="#" class="local" id="local">
+            <img src="../assets/local - Copia.png" alt="">
+            <span style="display:none; font-weight:bold;">Ver Localização</span>
         </a>
-
-
+   
     </div>
     <footer>
         <p> BARBEARIA DETROIT 2025
             &copy; todos os direitos reservados</p>
     </footer>
-    <script>
-        let inst = window.document.getElementById('inst')
-        
-    </script>
+<script src="../js/CTT.js"></script>
 
 </body>
 
