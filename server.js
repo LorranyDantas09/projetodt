@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-import router from "./main.js"; // API de agendamentos
+import router from "./js/main.js"; // agora correto!
 
 dotenv.config({ path: "./variaveis.env" });
 
@@ -18,16 +18,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Servir arquivos estáticos (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(__dirname));
 
 // Rotas da API
 app.use("/api", router);
 
-// Rota principal → index.html
+// Página inicial
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Porta
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`🚀 Servidor rodando em http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`)
+);
