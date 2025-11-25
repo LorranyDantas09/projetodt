@@ -13,7 +13,6 @@ const db = postgres.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   dialect: "postgres",
-  port: Number(process.env.DB_PORT),
   dialectOptions: {
     ssl:{
       reaquire: true, rejecUnauthorized: false}
