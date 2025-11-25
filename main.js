@@ -7,16 +7,21 @@ dotenv.config({ path: "./variaveis.env" });
 const { Pool } = pkg;
 const router = express.Router();
 
-// Conexão com PostgreSQL
+// Conexão com PostgreSQL (Render)
 const db = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT || 5432,
+  ssl: { rejectUnauthorized: false }  // Render exige SSL!
 });
 
 // Teste de conexão
 db.connect()
-  .then(() => console.log("🟢 Conectado ao PostgreSQL"))
+  .then(() => console.log("🟢 Conectado ao PostgreSQL na Render"))
   .catch((err) => console.error("🔴 Erro ao conectar no banco:", err));
+
 
 
 // ---------------- ROTAS ----------------
