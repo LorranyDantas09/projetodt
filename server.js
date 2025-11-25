@@ -9,24 +9,32 @@ import router from "./main.js";
 dotenv.config({ path: "./variaveis.env" });
 
 const app = express();
+
+// Caminhos corretos
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Habilita CORS (permite que o front acesse o backend)
-app.use(cors({
-    origin: "*",  // em produção, pode trocar para o domínio da sua página
-}));
+// CORS liberado
+app.use(cors({ origin: "*" }));
 
 // Middlewares
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "public"))); // se você quiser servir o front pelo backend
+app.use(express.urlencoded({ extended: true }));
 
-// Rotas começando com /api
+// 🔥 SERVIR O FRONT END
+app.use(express.static(path.join(__dirname, "public")));
+
+// 🔥 Rotas da API
 app.use("/api", router);
 
-// Porta Render
-const PORT = process.env.PORT || 3000;
+// 🔥 Se nenhuma rota combinar → envia o index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Render usa esta porta automaticamente
+const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
-    console.log(`🔥 Servidor rodando na porta ${PORT}`);
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
