@@ -12,22 +12,21 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Habilita CORS (permite que o front acesse o backend)
+app.use(cors({
+    origin: "*",  // em produção, pode trocar para o domínio da sua página
+}));
+
 // Middlewares
-app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public"))); // se você quiser servir o front pelo backend
 
-// Arquivos estáticos
-app.use(express.static(path.join(__dirname)));
-
-// Rotas da API
+// Rotas começando com /api
 app.use("/api", router);
 
-// Página principal
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-
 // Porta Render
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta: ${PORT}`));
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`🔥 Servidor rodando na porta ${PORT}`);
+});

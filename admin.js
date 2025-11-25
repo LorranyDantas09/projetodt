@@ -1,4 +1,5 @@
-const API_BASE = "/api/agendamentos";
+// Sua API hospedada na Render
+const API_BASE = "https://projetodt.onrender.com/api/agendamentos";
 
 const form = document.getElementById("form-agendamento");
 const tabela = document.querySelector("#tabela-agendamentos tbody");
@@ -62,7 +63,7 @@ async function deletarAgendamento(id) {
   }
 }
 
-// Editar agendamento (preenche o formulário)
+// Editar agendamento
 async function editarAgendamento(id) {
   try {
     const res = await fetch(API_BASE);
@@ -78,16 +79,17 @@ async function editarAgendamento(id) {
     form.hora.value = a.hora;
     form.observacoes.value = a.observacoes || "";
 
-    // Remove o antigo ao salvar
-    deletarAgendamento(id);
+    // Se quiser apenas editar sem apagar, remova esta linha:
+    // deletarAgendamento(id);
+
   } catch (err) {
     console.error(err);
   }
 }
 
-// Expor funções globalmente para HTML
+// Expor funções no HTML
 window.deletarAgendamento = deletarAgendamento;
 window.editarAgendamento = editarAgendamento;
 
-// Carregar ao abrir a página
+// Carregar lista ao abrir
 window.addEventListener("DOMContentLoaded", carregarAgendamentos);
