@@ -1,4 +1,4 @@
-const API_BASE = "/api/agendamentos";
+const API_BASE = "/agendamentos";
 
 // === Função de Pop-up estilizado ===
 function showPopup(mensagem, tipo = "sucesso") {
@@ -7,10 +7,7 @@ function showPopup(mensagem, tipo = "sucesso") {
   popup.textContent = mensagem;
   document.body.appendChild(popup);
 
-  // Mostra com animação
   setTimeout(() => popup.classList.add("visivel"), 50);
-
-  // Desaparece depois de 3 segundos
   setTimeout(() => {
     popup.classList.remove("visivel");
     setTimeout(() => popup.remove(), 500);
@@ -19,19 +16,18 @@ function showPopup(mensagem, tipo = "sucesso") {
 
 const form = document.querySelector(".form-servico");
 
-// Função para enviar agendamento
+// === Enviar formulário ===
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  // Pega os valores do formulário
+  // CAPTURA REAL e SEGURA com IDs
   const data = {
-    cliente: form.querySelector('input[type="text"]').value,
-    telefone: form.querySelector('input[type="tel"]')?.value || "",
-    servico: form.querySelector('select:nth-of-type(1)').value,
-    profissional: form.querySelector('select:nth-of-type(2)').value,
-    data: form.querySelector('input[type="date"]').value,
-    hora: form.querySelector('select:nth-of-type(3)').value,
-    observacoes: form.querySelector('textarea[name="mensagem"]').value || ""
+    nome: document.getElementById("nome").value,
+    servico: document.getElementById("servico").value,
+    barbeiro: document.getElementById("barbeiro").value,
+    data: document.getElementById("data").value,
+    horario: document.getElementById("horario").value,
+    observacoes: document.getElementById("obs").value
   };
 
   try {
@@ -44,11 +40,10 @@ form.addEventListener("submit", async (e) => {
     if (!res.ok) throw new Error("Erro ao enviar agendamento");
 
     showPopup("✅ Seu agendamento foi realizado com sucesso!", "sucesso");
-form.reset();
+    form.reset();
 
   } catch (err) {
     console.error(err);
     showPopup("❌ Erro ao realizar agendamento. Tente novamente.", "erro");
-
   }
 });

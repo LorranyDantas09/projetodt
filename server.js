@@ -1,40 +1,63 @@
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
-import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-import router from "./main.js";
-
-dotenv.config({ path: "./variaveis.env" });
+import Agendamento from "./agendamentos.js";
 
 const app = express();
 
-// Caminhos corretos
+// Configuração do caminho
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// CORS liberado
-app.use(cors({ origin: "*" }));
-
 // Middlewares
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use(express.json());
 
-// 🔥 SERVIR O FRONT END
+// Servir arquivos do public
 app.use(express.static(path.join(__dirname, "public")));
 
-// 🔥 Rotas da API
-app.use("/api", router);
+// ROTAS
 
-// 🔥 Se nenhuma rota combinar → envia o index.html
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+// Listar
+app.get("/agendamentos", async (req, res) => {
+  try {
+    const ag = await Agendamento.findAll();
+    res.json(ag);
+  } catch (err) {
+    res.status(500).send("Erro ao buscar agendamentos: " + err);
+  }
 });
 
-// Render usa esta porta automaticamente
-const PORT = process.env.PORT || 10000;
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+// Criar
+app.post("/agendamentos", async (req, res) => {
+  try {
+    await Agendamento.create(req.body);
+    res.send("Agendamento criado com sucesso!");
+  } catch (err) {
+    res.status(500).send("Erro ao criar agendamento: " + err);
+  }
 });
+
+// Editar
+app.patch("/agendamentos/:id", async (req, res) => {
+  try {
+    await Agendamento.update(req.body, { where: { id: req.params.id } });
+    res.send("Agendamento atualizado.");
+  } catch (err) {
+    res.status(500).send("Erro ao atualizar: " + err);
+  }
+});
+
+// Deletar
+app.delete("/agendamentos/:id", async (req, res) => {
+  try {
+    await Agendamento.destroy({ where: { id: req.params.id } });
+    res.send("Agendamento deletado.");
+  } catch (err) {
+    res.status(500).send("Erro ao deletar: " + err);
+  }
+});
+
+// Iniciar servidor
+app.listen(3000, () => console.log("Rodando na porta 3000"));

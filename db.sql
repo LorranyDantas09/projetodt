@@ -1,10 +1,11 @@
+DROP TABLE IF EXISTS agendamentos;
+
 CREATE TABLE agendamentos (
   id SERIAL PRIMARY KEY,
-  cliente VARCHAR(100),
-  telefone VARCHAR(20),
-  servico VARCHAR(50),
-  profissional VARCHAR(50),
-  data DATE,
-  hora TIME,
+  nome VARCHAR(100) NOT NULL,
+  servico VARCHAR(100) NOT NULL,
+  barbeiro VARCHAR(100) NOT NULL,
+  data DATE NOT NULL,
+  horario VARCHAR(10) NOT NULL,
   observacoes TEXT
 );

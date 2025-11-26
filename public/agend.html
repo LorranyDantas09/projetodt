@@ -20,10 +20,12 @@
 
   <main>
     <form class="form-servico">
-      <!-- Nome d0 cliente -->
-      <input type="text" placeholder="NOME COMPLETO" required>
+
+      <!-- Nome do cliente -->
+      <input id="nome" type="text" placeholder="NOME COMPLETO" required>
+
       <!-- Serviço -->
-      <select required>
+      <select id="servico" required>
         <option value="">SERVIÇO</option>
         <option value="A. AMERICANO">A. AMERICANO</option>
         <option value="CORTE MÁQUINA/PENTE">CORTE MÁQUINA/PENTE</option>
@@ -50,14 +52,13 @@
         <option value="SOMBRANCELHA">SOMBRANCELHA</option>
         <option value="TERAPIA CONE HINDU">TERAPIA CONE HINDU</option>
         <option value="TERAPIA FACIAL">TERAPIA FACIAL</option>
-
       </select>
 
-      <!-- Observações dos serviços -->
-      <textarea class="textog" name="mensagem" id="obs" placeholder="Observações ao serviço (alergias, restrições, etc)" cols="30" rows="3"></textarea>    
+      <!-- Observações -->
+      <textarea id="obs" class="textog" placeholder="Observações ao serviço (alergias, restrições, etc)" rows="3"></textarea>
 
-      <!-- Barbeiros/escolha -->
-      <select required>
+      <!-- Barbeiro -->
+      <select id="barbeiro" required>
         <option value="">BARBEIRO</option>
         <option value="BERNARDO">BERNARDO</option>
         <option value="BRUNO">BRUNO</option>
@@ -65,14 +66,13 @@
         <option value="RENAN">RENAN</option>
         <option value="TELMA">TELMA</option>
         <option value="VANILSON">VANILSON</option>
-
       </select>
 
-      <!-- Calendario de agendamento -->
-      <input class="calendario" type="date" id="dia" name="dia" class="calendario" required>
-     
-      <!-- Horário de atendimento-->
-      <select required>
+      <!-- Calendário -->
+      <input id="data" type="date" class="calendario" required>
+
+      <!-- Horário -->
+      <select id="horario" required>
         <option value="">HORÁRIO</option>
         <option value="09:00">09:00</option>
         <option value="10:00">10:00</option>
@@ -88,7 +88,7 @@
         <option value="20:00">20:00</option>
       </select>
 
-      <!-- Nossa Equipe -->
+      <!-- Seção equipe (não usada para envio, apenas visual) -->
       <section class="equipe">
         <h2>NOSSA EQUIPE</h2>
         <div class="botoes">
@@ -129,20 +129,23 @@
           </label>
         </div>
       </section>
-      <!-- Finaliza agendamento -->
-      <button type="submit" class="btn-finalizar">FINALIZAR AGENDAMENTO
-        <a href="/home/index.html" class="botao-link">VOLTAR</a>
-      </button>
+
+      <!-- Botão -->
+      <button type="submit" class="btn-finalizar">FINALIZAR AGENDAMENTO</button>
+      <a href="/home/index.html" class="botao-link">VOLTAR</a>
+
     </form>
+
     <section class="intro">
       <h2>Agende seu horário com estilo 💈</h2>
       <p>Escolha seu barbeiro, horário e serviço — o resto é com a gente!</p>
     </section>
   </main>
-   <!-- Rodape -->
+
   <footer>
     <p>BARBEARIA DETROIT 2025 &copy; Todos os direitos reservados</p>
   </footer>
+
   <script type="module" src="./js/agendamento.js"></script>
 </body>
 </html>

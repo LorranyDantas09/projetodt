@@ -1,95 +1,85 @@
-// Sua API hospedada na Render
-const API_BASE = "https://projetodt.onrender.com/api/agendamentos";
+document.addEventListener("DOMContentLoaded", async () => {
+  const tbody = document.querySelector("#tabela-agendamentos tbody");
 
-const form = document.getElementById("form-agendamento");
-const tabela = document.querySelector("#tabela-agendamentos tbody");
-
-// Carregar agendamentos na tabela
-async function carregarAgendamentos() {
-  tabela.innerHTML = "";
-  try {
-    const res = await fetch(API_BASE);
-    const agendamentos = await res.json();
-
-    agendamentos.forEach(a => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td data-label="Cliente">${a.cliente}</td>
-        <td data-label="Telefone">${a.telefone}</td>
-        <td data-label="Serviço">${a.servico}</td>
-        <td data-label="Profissional">${a.profissional}</td>
-        <td data-label="Data">${a.data}</td>
-        <td data-label="Hora">${a.hora}</td>
-        <td data-label="Observações">${a.observacoes || ""}</td>
-        <td data-label="Ações">
-          <button class="btn btn-edit" onclick="editarAgendamento(${a.id})">Editar</button>
-          <button class="btn btn-delete" onclick="deletarAgendamento(${a.id})">Excluir</button>
-        </td>
-      `;
-      tabela.appendChild(tr);
-    });
-  } catch (err) {
-    console.error(err);
+  if (!tbody) {
+      console.error("ERRO: elemento #tabela-agendamentos tbody não existe no HTML");
+      return;
   }
-}
 
-// Adicionar novo agendamento
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
+  async function carregarAgendamentos() {
+      tbody.innerHTML = "";
+      try {
+          const res = await fetch("/agendamentos"); 
+          const agendamentos = await res.json();
 
-  try {
-    await fetch(API_BASE, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-    form.reset();
-    carregarAgendamentos();
-  } catch (err) {
-    console.error(err);
+          agendamentos.forEach(a => {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+                  <td>${a.cliente}</td>
+                  <td>${a.telefone}</td>
+                  <td>${a.servico}</td>
+                  <td>${a.profissional}</td>
+                  <td>${a.data}</td>
+                  <td>${a.hora}</td>
+                  <td>${a.observacoes || ""}</td>
+                  <td>
+                      <button class="edit-btn" data-id="${a.id}">Editar</button>
+                      <button class="delete-btn" data-id="${a.id}">Deletar</button>
+                  </td>
+              `;
+              tbody.appendChild(tr);
+          });
+
+          adicionarEventos();
+      } catch (erro) {
+          alert("Erro ao carregar os agendamentos: " + erro);
+      }
   }
+
+  function adicionarEventos() {
+
+      document.querySelectorAll(".delete-btn").forEach(btn => {
+          btn.addEventListener("click", async () => {
+              const id = btn.dataset.id;
+
+              if (confirm("Deseja realmente deletar este agendamento?")) {
+                  try {
+                      const res = await fetch(`/agendamentos/${id}`, {
+                          method: "DELETE"
+                      });
+                      const texto = await res.text();
+                      alert(texto);
+                      carregarAgendamentos();
+                  } catch (erro) {
+                      alert("Erro ao deletar: " + erro);
+                  }
+              }
+          });
+      });
+
+      document.querySelectorAll(".edit-btn").forEach(btn => {
+          btn.addEventListener("click", async () => {
+              const id = btn.dataset.id;
+              const novoHorario = prompt("Digite o novo horário (HH:MM):");
+
+              if (novoHorario) {
+                  try {
+                      const res = await fetch(`/agendamentos/${id}`, {
+                          method: "PATCH",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ hora: novoHorario })
+                      });
+                      const texto = await res.text();
+                      alert(texto);
+                      carregarAgendamentos();
+                  } catch (erro) {
+                      alert("Erro ao atualizar: " + erro);
+                  }
+              }
+          });
+      });
+  }
+
+  carregarAgendamentos();  
 });
-
-// Deletar agendamento
-async function deletarAgendamento(id) {
-  if (!confirm("Deseja realmente excluir este agendamento?")) return;
-  try {
-    await fetch(`${API_BASE}/${id}`, { method: "DELETE" });
-    carregarAgendamentos();
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-// Editar agendamento
-async function editarAgendamento(id) {
-  try {
-    const res = await fetch(API_BASE);
-    const agendamentos = await res.json();
-    const a = agendamentos.find(x => x.id === id);
-    if (!a) return alert("Agendamento não encontrado.");
-
-    form.cliente.value = a.cliente;
-    form.telefone.value = a.telefone;
-    form.servico.value = a.servico;
-    form.profissional.value = a.profissional;
-    form.data.value = a.data;
-    form.hora.value = a.hora;
-    form.observacoes.value = a.observacoes || "";
-
-    // Se quiser apenas editar sem apagar, remova esta linha:
-    // deletarAgendamento(id);
-
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-// Expor funções no HTML
-window.deletarAgendamento = deletarAgendamento;
-window.editarAgendamento = editarAgendamento;
-
-// Carregar lista ao abrir
-window.addEventListener("DOMContentLoaded", carregarAgendamentos);
+  
