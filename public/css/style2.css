@@ -8,7 +8,7 @@
 body {
   background-color: #000000;
   color: #fbfb20;
-  line-height: 1.4;
+  line-height: 2.0;
   min-height: auto;
 }
 header {
@@ -175,7 +175,7 @@ align-items: center;
 justify-content: center;
 display: flex;
 font-weight: bold;
-padding: 30px;
+padding: 20px;
 }
 
 @media (max-width: 768px) {
