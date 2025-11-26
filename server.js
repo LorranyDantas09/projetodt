@@ -5,7 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import db from "./db.js";
-import agendamentoRoutes from "./routes/agendamentos.js";
+import agendamentoRoutes from "./agendamentos.js";
 
 dotenv.config();
 
