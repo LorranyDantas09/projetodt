@@ -1,6 +1,6 @@
 // routes/agendamentos.js
 import express from "express";
-import Agendamento from "   ./models/Agendamento.js";
+import Agendamento from "./models/Agendamento.js";
 
 const router = express.Router();
 
