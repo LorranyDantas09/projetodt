@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Painel de Agendamentos</title>
-  <link rel="stylesheet" href="./css/admstyle.css">
+  <link rel="stylesheet" href="./css/admstyle.css" />
 </head>
-
 <body>
   <header>
     <h1>PAINEL DE AGENDAMENTOS</h1>
@@ -18,8 +16,7 @@
     <h2>NOVO AGENDAMENTO</h2>
     <form id="form-agendamento">
       <input type="text" name="cliente" placeholder="Nome do Cliente" required>
-      <input type="tel" name="telefone" placeholder="Telefone" required>
-
+      <input type="tel" name="telefone" placeholder="Telefone">
       <select name="profissional" required>
         <option value="">Selecione o barbeiro</option>
         <option value="Vanilson">Vanilson</option>
@@ -29,40 +26,13 @@
         <option value="Renan">Renan</option>
         <option value="Telma">Telma</option>
       </select>
-
       <select name="servico" required>
         <option value="">Selecione o serviço</option>
-        <option value="A. AMERICANO">A. AMERICANO</option>
-        <option value="CORTE MÁQUINA/PENTE">CORTE MÁQUINA/PENTE</option>
-        <option value="CORTE MÁQUINA/TESOURA">CORTE MÁQUINA/TESOURA</option>
-        <option value="CORTE TESOURA">CORTE TESOURA</option>
-        <option value="DEPILAÇÃO NASAL">DEPILAÇÃO NASAL</option>
-        <option value="DEPILAÇÃO ORELHA">DEPILAÇÃO ORELHA</option>
-        <option value="ESCOVA">ESCOVA</option>
-        <option value="FREESTYLE">FREESTYLE</option>
-        <option value="HIDRATAÇÃO">HIDRATAÇÃO</option>
-        <option value="HIDRATAÇÃO BARBA">HIDRATAÇÃO BARBA</option>
-        <option value="LAVAGEM CABELO">LAVAGEM CABELO</option>
-        <option value="LUZES">LUZES</option>
-        <option value="MATIZAÇÃO">MATIZAÇÃO</option>
-        <option value="NAVALHADO">NAVALHADO</option>
-        <option value="PEZINHO">PEZINHO</option>
-        <option value="PIGMENTAÇÃO">PIGMENTAÇÃO</option>
-        <option value="PLATINADO">PLATINADO</option>
-        <option value="PREENCHIMENTO BARBA">PREENCHIMENTO BARBA</option>
-        <option value="PROGRESSIVA">PROGRESSIVA</option>
-        <option value="SCALP CLEAR">SCALP CLEAR</option>
-        <option value="SELAGEM">SELAGEM</option>
-        <option value="SELAGEM BARBA">SELAGEM BARBA</option>
-        <option value="SOBRANCELHA">SOBRANCELHA</option>
-        <option value="TERAPIA CONE HINDU">TERAPIA CONE HINDU</option>
-        <option value="TERAPIA FACIAL">TERAPIA FACIAL</option>
+        <!-- suas options -->
       </select>
-
       <input type="date" name="data" required>
       <input type="time" name="hora" required>
       <textarea name="observacoes" placeholder="Observações"></textarea>
-
       <button type="submit">Adicionar</button>
     </form>
   </section>
@@ -71,31 +41,21 @@
     <table id="tabela-agendamentos">
       <thead>
         <tr>
-          <th>Cliente</th>
-          <th>Telefone</th>
-          <th>Serviço</th>
-          <th>Profissional</th>
-          <th>Data</th>
-          <th>Hora</th>
-          <th>Observações</th>
-          <th>Ações</th>
+          <th>Cliente</th><th>Telefone</th><th>Serviço</th><th>Profissional</th><th>Data</th><th>Hora</th><th>Observações</th><th>Ações</th>
         </tr>
       </thead>
-      <tbody>
-  
-      </tbody>
+      <tbody></tbody>
     </table>
   </main>
 
   <div class="botao-container">
-    <a href="index.html" class="botao-link">VOLTAR</a>
+    <a href="serv.html" class="botao-link">VOLTAR</a>
   </div>
 
   <footer>
     <p>BARBEARIA DETROIT 2025 &copy; todos os direitos reservados</p>
   </footer>
-  
+
   <script src="./js/admin.js" type="module"></script>
 </body>
-
 </html>
