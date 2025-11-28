@@ -450,3 +450,112 @@ footer {
     word-wrap: break-word;
   }
 }
+
+@media (max-width: 600px) {
+  /* ===== HEADER ===== */
+  header {
+    display: flex;
+    /* left */
+    gap: 10px; /* reduzido para caber tudo */
+    padding: 10px 10px;
+  }
+
+  header img {
+    width: 50px;
+    height: 50px;
+  }
+
+  header a {
+    font-size: 12px; /* 🔥 diminui para não estourar */
+    padding: 4px 0;
+  }
+
+  /* Botão hambúrguer corrigido */
+  .menu-icon {
+    position: relative;
+    right: 0px;
+    top: 0px;
+    z-index: 999; /* não sobrepõe os botões */
+    transform: scale(0.9);
+  }
+
+  /* empurra o menu para baixo e evita sobreposição */
+  nav {
+    margin-right: 35px;
+  }
+
+.ativo {
+  display: flex;
+  padding-left: 45px;
+}
+
+  /* ===== HOME BACKGROUND — AJUSTE DO TAMANHO ===== */
+  .homebg {
+    height: 30vh; /* 🔥 AGORA FICA BEM MENOR */
+    min-height: 30vh;
+    background-size: cover; /* mantém qualidade */
+    background-position: center top;
+  }
+
+  /* Containers: sempre lado a lado */
+  .vanilson-img,
+  .corte-img,
+  .autismoinf-img,
+  .localdet-img,
+  .meninoc-img {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    margin: 40px 0;
+    position: static;
+  }
+
+  /* IMAGENS */
+  .vanilsontam,
+  .cortetam,
+  .autismoinftam,
+  .localdettam,
+  .meninoctam,
+  .vanilson-img img,
+  .corte-img img,
+  .autismoinf-img img,
+  .localdet-img img,
+  .meninoc-img img {
+    width: 45%;
+    height: auto;
+    max-height: 330px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  /* TEXTOS */
+  .textcard1,
+  .textcard2,
+  .textcard3,
+  .textcard4,
+  .textcard5 {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    line-height: 1.45;
+    text-align: justify;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    position: static;
+  }
+
+  /* Espaçamento do footer */
+  footer {
+    margin-top: 120px;
+    padding: 20px;
+    font-size: 14px;
+  }
+}

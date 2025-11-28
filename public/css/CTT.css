@@ -205,6 +205,7 @@ footer {
   }
 
 
+
   div {
     display: flex;
     max-width: 570px;
@@ -232,9 +233,9 @@ footer {
   }
 }
 
-@media (max-width: 468px) {
+@media (max-width: 467px) {
   header {
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -250,12 +251,13 @@ footer {
 
 
   header a {
-    display: block;          
+    display: block;           
     width: 90%;
-    text-align: center;      
+    text-align: center;       
     font-size: 8px;          
     padding: 8px 0;
   }
+
 
   body{
     min-height: auto;
