@@ -174,10 +174,6 @@ footer {
 }
 
 
-
- 
-@media (max-width: 768px) {
-
  
   @media (max-width: 767px) {
   header {
@@ -230,7 +226,7 @@ footer {
     font-size: 13px;
   }
 }
-}
+
 @media (max-width: 467px)
  {
   header {
