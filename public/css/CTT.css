@@ -205,7 +205,6 @@ footer {
   }
 
 
-
   div {
     display: flex;
     max-width: 570px;
@@ -233,9 +232,9 @@ footer {
   }
 }
 
-@media (max-width: 467px) {
+@media (max-width: 468px) {
   header {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -251,13 +250,12 @@ footer {
 
 
   header a {
-    display: block;           
+    display: block;          
     width: 90%;
-    text-align: center;       
+    text-align: center;      
     font-size: 8px;          
     padding: 8px 0;
   }
-
 
   body{
     min-height: auto;
@@ -283,31 +281,18 @@ footer {
 
   /* botoes */
   .instagram, .whats, .agen, .local {
-    width: 140px;
-    height: 75px;
-    margin: 0 auto;
-    padding: 15px;
+    width: 120px;
+    height: 90px;
+    margin: 10 90px;
+    padding: 13px;
   }
 
-  /* imagens dos botões */
-  .instagram img {
-    width: 55px;
-  }
-  .whats img {
-    width: 35px;
-  }
-  .agen img {
-    width: 35px;
-  }
-  .local img {
-    width: 30px;
-  }
 
   /* rodapé */
   footer {
     font-size: 12px;
     padding: 15px;
-    margin-top: 80px;
+    margin-top: 20px;
     text-align: center;
   }
 }
