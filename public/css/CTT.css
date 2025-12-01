@@ -53,14 +53,13 @@ header img {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 .menu-icon {
-      width: 40px;
-      cursor: pointer;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      z-index: 998;
-    }
-
+  width: 20px;
+  cursor: pointer;
+  position: relative;
+  top: 15px;
+  right:15px;
+  z-index: 998;
+}
     .sidebar {
       height: 100%;
       width: 0;

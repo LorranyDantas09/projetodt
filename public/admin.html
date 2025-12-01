@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Painel de Agendamentos</title>
   <link rel="stylesheet" href="./css/admstyle.css" />
 </head>
+
 <body>
   <header>
     <h1>PAINEL DE AGENDAMENTOS</h1>
@@ -28,7 +30,7 @@
       </select>
       <select name="servico" required>
         <option value="">Selecione o serviço</option>
-         <option value="A. AMERICANO">A. AMERICANO</option>
+        <option value="A. AMERICANO">A. AMERICANO</option>
         <option value="CORTE MÁQUINA/PENTE">CORTE MÁQUINA/PENTE</option>
         <option value="CORTE MÁQUINA/TESOURA">CORTE MÁQUINA/TESOURA</option>
         <option value="CORTE TESOURA">CORTE TESOURA</option>
@@ -65,7 +67,14 @@
     <table id="tabela-agendamentos">
       <thead>
         <tr>
-          <th>Cliente</th><th>Telefone</th><th>Serviço</th><th>Profissional</th><th>Data</th><th>Hora</th><th>Observações</th><th>Ações</th>
+          <th>Cliente</th>
+          <th>Telefone</th>
+          <th>Serviço</th>
+          <th>Profissional</th>
+          <th>Data</th>
+          <th>Hora</th>
+          <th>Observações</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -80,6 +89,17 @@
     <p>BARBEARIA DETROIT 2025 &copy; todos os direitos reservados</p>
   </footer>
 
+  <!-- v-libras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
   <script src="./js/admin.js" type="module"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script> new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
 </body>
+
 </html>

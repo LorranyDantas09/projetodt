@@ -17,20 +17,21 @@
     <a href="curso.html">CURSOS</a>
     <a href="CONT.html">CONTATOS</a>
     <a href="ass.html">ASSINATURA</a>
- <!-- Ícone do menu (hambúrguer) -->
-      <img src="assets/barrasmenu2.png" class="menu-icon" onclick="openMenu()" alt="Menu" />
-    </header>
 
-    <!-- Menu lateral (abre da direita) -->
-    <div id="menuLateral" class="sidebar">
-      <span class="closebtn" onclick="closeMenu()">&times;</span>
-      <a href="index2.html">Cadastre-se</a>
-      <a href="agend.html">Agende Agora</a>
-      <a href="admin.html">Admin Page</a>
-    </div>
+    <!-- Ícone do menu (hambúrguer) -->
+    <img src="assets/barrasmenu2.png" class="menu-icon" onclick="openMenu()" alt="Menu" />
+  </header>
+
+  <!-- Menu lateral (abre da direita) -->
+  <div id="menuLateral" class="sidebar">
+    <span class="closebtn" onclick="closeMenu()">&times;</span>
+    <a href="index2.html">Cadastre-se</a>
+    <a href="agend.html">Agende Agora</a>
+    <a href="admin.html">Admin Page</a>
+  </div>
 
 
-
+  <!-- tabela -->
   <section class="tabela-servicos">
     <table>
       <thead>
@@ -173,7 +174,7 @@
     <a href="agend.html" class="botao-link">AGENDE AGORA</a>
   </div>
 
-
+  <!-- alerta -->
   <div class="alerta">
     <img src="assets/ChatGPT Image 17 de set. de 2025, 14_59_52.png" alt="alerta" class="icone">
     <span>OS DESCONTOS DO CLUBE DETROIT SÃO VÁLIDOS APENAS PARA ASSINANTES!</span>
@@ -181,13 +182,23 @@
 
 
   <footer>
-    <p> BARBEARIA DETROIT 2025  
-    &copy; todos os direitos reservados</p>
+    <p> BARBEARIA DETROIT 2025
+      &copy; todos os direitos reservados</p>
   </footer>
- 
-  <script src="./js/serv.js"></script>
 
-  
+  <!-- v-libras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+
+  <script src="./js/serv.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script> new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
+
 
 </body>
 
