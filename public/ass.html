@@ -111,28 +111,6 @@
     <div class="loading-overlay" id="loading">
     </div>
   
-    <script>
-      const botaoAssinar = document.querySelector('.btn-assinar');
-      const loading = document.getElementById('loading');
-  
-      botaoAssinar.addEventListener('click', () => {
-        const confirmar = confirm("Deseja realmente se tornar um assinante do Clube Detroit?");
-  
-        if (confirmar) {
-          
-          loading.classList.add('ativo');
-  
-          
-          setTimeout(() => {
-            window.location.href = "assp.html";
-          }, 0);
-        } else {
-          alert("A assinatura foi cancelada.");
-        }
-      });
-    </script>
-
-
 <script src="./js/ass.js"></script>
   </body>
   </html>
