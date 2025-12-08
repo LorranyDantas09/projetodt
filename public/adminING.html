@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Schedule Panel</title>
+  <link rel="stylesheet" href="./css/admstyle.css" />
+</head>
+<body>
+     <a href="admin.html" class="trad">BR/EN</a>
+  <header>
+    <h1>Schedule Panel</h1>
+    <p>Manage your clients and booked times.</p>
+  </header>
+
+  <section class="form-section">
+    <h2>NEW SCHEDULE</h2>
+    <form id="form-agendamento">
+      <input type="text" name="customer" placeholder="Customer Name" required>
+      <input type="tel" name="telephone" placeholder="Telephone">
+      <select name="professional" required>
+        <option value="">Select the barber</option>
+        <option value="Vanilson">Vanilson</option>
+        <option value="Bernardo">Bernardo</option>
+        <option value="Bruno">Bruno</option>
+        <option value="Luan">Luan</option>
+        <option value="Renan">Renan</option>
+        <option value="Telma">Telma</option>
+      </select>
+      <select name="service" required>
+        <option value="">Select the service</option>
+         <option value="A. AMERICANO">A. AMERICANO</option>
+        <option value="CORTE MÁQUINA/PENTE">MACHINE CUTTING/COMB</option>
+        <option value="CORTE MÁQUINA/TESOURA">MACHINE/SCISSOR CUT</option>
+        <option value="CORTE TESOURA">CUT WITH SCISSORS</option>
+        <option value="DEPILAÇÃO NASAL">NOSE HAIR REMOVAL</option>
+        <option value="DEPILAÇÃO ORELHA">EAR HAIR REMOVAL</option>
+        <option value="ESCOVA">BRUSH</option>
+        <option value="FREESTYLE">FREESTYLE</option>
+        <option value="HIDRATAÇÃO">HYDRATION</option>
+        <option value="HIDRATAÇÃO BARBA">BEARD HYDRATION</option>
+        <option value="LAVAGEM DE CABELO">HAIR WASHING</option>
+        <option value="LUZES">HIGHLIGHTS</option>
+        <option value="MATIZAÇÃO">TONING</option>
+        <option value="NAVALHADO">RAZOR CUT</option>
+        <option value="PEZINHO">NECKLINE</option>
+        <option value="PIGMENTAÇÃO CABELO">HAIR PIGMENTATION</option>
+        <option value="PLATINADO">PLATINUM BLONDE</option>
+        <option value="PREENCHIMENTO BARBA">BEARD FILLING</option>
+        <option value="PROGRESSIVA">BRAZILIAN BLOWOUT</option>
+        <option value="SCALPCLEAR">SCALP’CLEAR</option>
+        <option value="SELAGEM">HAIR SEALING TREATMENT</option>
+        <option value="SELAGEM BARBA">SBEARD SEALING TREATMENT</option>
+        <option value="SOMBRANCELHA">EYEBROWS</option>
+        <option value="TERAPIA CONE HINDU">HOPI EAR CANDLE THERAPY</option>
+        <option value="TERAPIA FACIAL">FACIAL THERAPY</option>
+      </select>
+      <input type="date" name="data" required>
+      <input type="time" name="hora" required>
+      <textarea name="observacoes" placeholder="Observations"></textarea>
+      <button type="submit">To add</button>
+    </form>
+  </section>
+
+  <main>
+    <table id="tabela-agendamentos">
+      <thead>
+        <tr>
+          <th>Customer</th><th>Telephone</th><th>Service</th><th>Professional</th><th>Date</th><th>Hour</th><th>Observations</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <div class="botao-container">
+    <a href="serv.html" class="botao-link">BACK</a>
+  </div>
+
+  <footer>
+    <p>BARBEARIA DETROIT 2025 &copy; all rights reserved</p>
+  </footer>
+
+  <script src="./js/admin.js" type="module"></script>
+</body>
+</html>
+
+

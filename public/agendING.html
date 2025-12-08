@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento Detroit</title>
+    <link rel="stylesheet" href="./css/style2.css" />
+</head>
+
+<body>
+    <a href="agend.html" class="trad">BR/EN</a>
+    <header>
+        <a href="indexING.html">HOME</a>
+        <a href="avaliaçaoING.html">REVIEWS</a>
+        <a href="servING.html" class="ativo">SERVICES</a>
+        <img src="assets/cortado.png" alt="Logo Barbearia Detroit" />
+        <a href="cursoING.html">COURSES</a>
+        <a href="CONTING.html">CONTACTS</a>
+        <a href="assING.html">SIGNATURES</a>
+    </header>
+
+    <main>
+        <form class="form-servico">
+            <input id="nome" type="text" placeholder="FULL NAME" required />
+            <select id="servico" required>
+                <option value="">SERVICES</option>
+                <option value="A. AMERICANO">AMERICAN CUT</option>
+                <option value="CORTE MÁQUINA/PENTE">CLIPPER/COMB CUT</option>
+                <option value="CORTE MÁQUINA/TESOURA">CLIPPER/SCISSOR CUT</option>
+                <option value="CORTE TESOURA">SCISSOR CUT</option>
+                <option value="DEPILAÇÃO NASAL">NOSE WAX</option>
+                <option value="DEPILAÇÃO ORELHA">EAR WAX</option>
+                <option value="ESCOVA">BLOWOUT</option>
+                <option value="FREESTYLE">FREESTYLE</option>
+                <option value="HIDRATAÇÃO">HYDRATION</option>
+                <option value="HIDRATAÇÃO BARBA">BEARD HYDRATION</option>
+                <option value="LAVAGEM DE CABELO">HAIR WASH</option>
+                <option value="LUZES">HIGHLIGHTS</option>
+                <option value="MATIZAÇÃO">TONING</option>
+                <option value="NAVALHADO">STRAIGHT RAZOR SHAVE</option>
+                <option value="PEZINHO">LINE UP</option>
+                <option value="PIGMENTAÇÃO CABELO">HAIR PIGMENTATION</option>
+                <option value="PLATINADO">PLATINUM BLEACH</option>
+                <option value="PREENCHIMENTO BARBA">BEARD FILL</option>
+                <option value="PROGRESSIVA">BRAZILIAN STRAIGHTENING</option>
+                <option value="SCALPCLEAR">SCALP’CLEAR</option>
+                <option value="SELAGEM">HAIR SEALING</option>
+                <option value="SELAGEM BARBA">BEARD SEALING</option>
+                <option value="SOMBRANCELHA">EYEBROW</option>
+                <option value="TERAPIA CONE HINDU">HINDU EAR CANDLE THERAPY</option>
+                <option value="TERAPIA FACIAL">FACIAL THERAPY</option>
+
+            </select>
+
+            <textarea id="obs" class="textog" placeholder="Observações ao serviço (alergias, restrições, etc)"
+                rows="3"></textarea>
+
+            <select id="barbeiro" required>
+                <option value="">BARBER</option>
+                <option value="BERNARDO">BERNARDO</option>
+                <option value="BRUNO">BRUNO</option>
+                <option value="LUAN">LUAN</option>
+                <option value="RENAN">RENAN</option>
+                <option value="TELMA">TELMA</option>
+                <option value="VANILSON">VANILSON</option>
+            </select>
+
+            <input id="data" type="date" class="calendario" required />
+
+            <select id="horario" required>
+                <option value="">TIME</option>
+                <option value="09:00">09:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 AM</option>
+                <option value="13:00">13:00 PM</option>
+                <option value="14:00">14:00 PM</option>
+                <option value="15:00">15:00 PM</option>
+                <option value="16:00">16:00 PM</option>
+                <option value="17:00">17:00 PM</option>
+                <option value="18:00">18:00 PM</option>
+                <option value="19:00">19:00 PM</option>
+                <option value="20:00">20:00 PM</option>
+            </select>
+
+            <button type="submit" class="btn-finalizar">FINALIZE APPOINTMENT</button>
+            <a href="/home/indexING.html" class="botao-link">BACK</a>
+        </form>
+
+        <section class="intro">
+            <h2>Schedule your appointment in style 💈</h2>
+            <p>Choose your barber, time and service — the rest is up to us!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>BARBER SHOP DETROIT 2025 &copy; All rights reserved</p>
+    </footer>
+
+    
+
+    <script src="./js/agendamento.js" type="module"></script>
+  
+</body>
+
+</html>

@@ -5,3 +5,6 @@ function openMenu() {
       function closeMenu() {
         document.getElementById("menuLateral").style.width = "0";
       }
+
+
+  

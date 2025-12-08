@@ -15,6 +15,28 @@ body {
 }
 
 
+.trad {
+  position: fixed;      
+  top: 20px;            
+  left: 20px;            
+  z-index: 9999;        
+  padding: 8px 14px;
+  background-color: #666666;
+  color: white;
+  border: 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: bolder;
+
+}
+
+.trad:hover{
+  color: #fbfb20;
+  transform: scale(1.2);
+  transition: all 0.7s ease;
+}
+
 header {
   background-color: #000;
   padding: 15px 25px;
