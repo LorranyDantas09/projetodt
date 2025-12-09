@@ -39,10 +39,10 @@ form.addEventListener("submit", async (e) => {
       throw new Error(err?.erro || "Erro ao enviar agendamento");
     }
 
-    showPopup("✅ Seu agendamento foi realizado com sucesso!", "sucesso");
+    showPopup("✅ Your booking was completed successfully");
     form.reset();
   } catch (err) {
     console.error(err);
-    showPopup("❌ Erro ao realizar agendamento. Tente novamente.", "erro");
+    showPopup("❌ An error occurred while scheduling your appointment. Please try again.", "error");
   }
 });
