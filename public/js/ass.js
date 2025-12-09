@@ -19,7 +19,7 @@ function openMenu() {
   
           
           setTimeout(() => {
-            window.location.href = "assp.html";
+            window.location.href = "assp.html"
           }, 0);
         } else {
           alert("A assinatura foi cancelada.");
